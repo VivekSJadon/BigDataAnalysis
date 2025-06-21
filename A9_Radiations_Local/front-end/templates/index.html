@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Data Simulation</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="title">
+        <h1>Radiation Data Tracking</h1>
+    </div>
+    <div id="controls">
+        <div class="dropdown-container">
+            <label for="continent-select">Select Continent:</label>
+            <select id="continent-select">
+                <option value="all">All</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+
+            </select>
+        </div>
+        <div class="dashboard">
+            <div id="max-radiation">
+                <h3>Maximum Radiation</h3>
+                <p>N/A</p>
+            </div>
+            <div id="min-radiation">
+                <h3>Minimum Radiation</h3>
+                <p>N/A</p>
+            </div>
+            <div id="avg-radiation">
+                <h3>Average Radiation</h3>
+                <p>N/A</p>
+            </div>
+            <div id="total-radiation">
+                <h3>Total Radiation</h3>
+                <p>N/A</p>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div><span style="background-color: #ff0000;"></span> > 45</div>
+            <div><span style="background-color: #ff6600;"></span> 30 - 45</div>
+            <div><span style="background-color: #ffcc00;"></span> 20 - 30</div>
+            <div><span style="background-color: #99ff33;"></span> 15 - 20</div>
+            <div><span style="background-color: #33cc33;"></span> 0 - 15</div>
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="static/app.js"></script>
+</body>
+</html>

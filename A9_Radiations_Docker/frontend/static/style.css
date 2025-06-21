@@ -1,0 +1,119 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent both horizontal and vertical scrolling */
+    box-sizing: border-box; /* Ensure padding and borders are included in the width and height */
+}
+
+#map {
+    position: absolute;
+    top: 70px; /* Adjust based on the height of the title */
+    left: 0;
+    height: calc(100% - 70px); /* Adjust based on the height of the title */
+    width: 100%;
+    z-index: 0;
+}
+
+.title {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #93d4ea; /* Add background color here */
+    color: #0b0202; /* Change text color for better readability */
+    padding: 10px;
+    width: 100%;
+    height: 70px; /* Adjust based on desired height */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.title h1 {
+    font-size: 24px; /* Reduced font size */
+    margin: 0;
+}
+
+#controls {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: rgba(131, 208, 236, 0.8); /* Add semi-transparent background color here */
+    color: #ffffff; /* Change text color for better readability */
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.dropdown-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#continent-select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.dashboard {
+    display: flex;
+    gap: 20px;
+}
+
+.dashboard div {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #000000; /* Change text color for better readability */
+}
+
+#total-radiation {
+    background-color: #7ae732; /* Change background color for the Total Radiation dashboard */
+    width: 150px;
+}
+
+.dashboard h3 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.dashboard p {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    color: #000000;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.legend span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}

@@ -1,0 +1,7 @@
+flinkconnect\DataStreamJob.class
+flinkconnect\DataStreamJob$RadiationAggregator.class
+Dto\RadiationAggregation.class
+flinkconnect\DataStreamJob$RadiationProcessWindowFunction.class
+Deserializer\JSONValueDeserializationSchema.class
+flinkconnect\DataStreamJob$1.class
+Dto\Radiation.class

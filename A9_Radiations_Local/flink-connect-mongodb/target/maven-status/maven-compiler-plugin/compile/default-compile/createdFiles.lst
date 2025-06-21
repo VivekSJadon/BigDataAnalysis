@@ -1,0 +1,4 @@
+flinkconnect\DataStreamJob.class
+flinkconnect\MongoDBSink.class
+Deserializer\JSONValueDeserializationSchema.class
+Dto\Radiation.class

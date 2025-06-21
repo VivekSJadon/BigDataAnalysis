@@ -1,0 +1,91 @@
+version: '2'
+
+services:
+  zookeeper:
+    image: nikhilphadke24/zookeeper:latest
+    ports:
+      - "2181:2181"
+    networks:
+      - flink-network
+
+  kafka:
+    image: nikhilphadke24/kafka:latest
+    ports:
+      - "9092:9092"
+    expose:
+      - "9093"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "testing-AS:1:1,testing-EU:1:1,testing-OC:1:1,testing-NA:1:1,testing-SA:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - flink-network
+
+  jobmanager:
+    image: nikhilphadke24/flink:1.17.2-scala_2.12
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager        
+    depends_on:
+      - zookeeper
+      - mysql
+    networks:
+      - flink-network
+
+  taskmanager:
+    image: nikhilphadke24/flink:1.17.2-scala_2.12
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 50
+        taskmanager.resource-id: kafkaLogs
+    networks:
+      - flink-network
+  
+  mysql:
+    image: nikhilphadke24/my-custom-mysql:latest
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_USER: root
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - flink-network
+
+  job-submitter:
+    image: nikhilphadke24/my-flink-job:latest
+    depends_on:
+      - jobmanager
+      - mysql
+      - taskmanager
+    command: >
+      /bin/bash -c "
+      sleep 100 &&
+      /opt/flink/bin/flink run -d -m jobmanager:8081 /opt/flink/job/flink-connect-1.0-SNAPSHOT.jar"
+    networks:
+      - flink-network
+
+networks:
+  flink-network:
+    name: flink-network
+    driver: bridge
