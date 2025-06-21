@@ -27,25 +27,11 @@ After cloning this repository, open the folder and read the README.md from it an
 ### Literature:
 This folder has the basic literature referred during the course of this project.
 
+### DATA:
+Due to Github data restrictions, measurements-out.csv file is not uploaded.
+
 ### Presentation:
 This folder holds the final slides of our presentation.
-
-## INDIVIDUAL CONTRIBUTIONS
-1. Research and installation of the technologies: RIYA SUNIL JOSHI
-2. Initial setup of input data, Apache Kafka Producer and Consumer: VIVEKSINGH JADON
-3. Preparation of Gannt Chart and Architecture: VIVEKSINGH JADON
-4. Apache Kafka Producer final script with topic creation: NIKHIL PHADKE
-5. Preparation of interim presentation: NIKHIL PHADKE
-6. Delivery of interim presentation: RADHIKA RAY, VIVEKSINGH JADON
-7. Apache Flink connection with Apache Kafka Producer: RIYA SUNIL JOSHI, NIKHIL PHADKE, VIVEKSINGH JADON
-8. Apache Flink data stream processing: NIKHIL PHADKE
-9. Apache Flink connection to MySQL database: NIKHIL PHADKE
-10. Apache Flink connection with MongoDB: VIVEKSINGH JADON
-11. Implementation of entire front-end: RIYA SUNIL JOSHI
-12. Connection of MySQL database to front-end: RIYA SUNIL JOSHI
-13. End-to-end dockerization of the application: NIKHIL PHADKE
-14. Implementation of application on GCP: RIYA SUNIL JOSHI
-15. Preparation of final presentation: RADHIKA RAY, VIVEKSINGH JADON
 
 ## References:
 1. [Flink Connection: https://github.com/airscholar/FlinkCommerce](https://github.com/airscholar/FlinkCommerce)
