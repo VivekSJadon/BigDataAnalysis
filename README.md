@@ -7,9 +7,8 @@ Clone this repository in the directory of your choice on your local device.
 This repository consists of five folders:
 1. A9_Radiations_Docker
 2. A9_Radiations_Local
-3. GCP
-4. Literature
-5. Presentation 
+3. Literature
+4. Presentation 
 
 ### A9_Radiations_Docker:
 1. After cloning this repository, separate out this folder from the other folders on your local device.
@@ -20,9 +19,6 @@ This repository consists of five folders:
 2. Open the folder and read the README.md from it and follow the steps to run the entire application locally on your device.
 3. This folder has 2 other folders, namely: flink-connect-mysql and flink-connect-mongodb.
 4. We have managed to connect Flink to both types of databases such as SQL and NoSQL. We are currently running the application only on MySQL for easier implementation, but it is easily possible to switch to MongoDB.
-
-### GCP:
-After cloning this repository, open the folder and read the README.md from it and follow the steps to run the entire application on GCP.
 
 ### Literature:
 This folder has the basic literature referred during the course of this project.
